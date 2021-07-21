@@ -7,4 +7,10 @@ Pequeño chat en tiempo real, que utiliza Socket.IO.
 🔴🔴🔴 https://chat-app-cr1337.herokuapp.com 🔴🔴🔴
 
 
-Falta introducir sistema de usuarios y el burger menú en las salas.
+Falta introducir el burger menú en las salas y el sistema JWT de usuarios
+de mi otro repositorio:
+
+https://github.com/cr1337-sudo/NodeAPI-Jwt-Roles
+#
+Además de introducir express-sessions para el manejo de datos
+(Y en un futuro facilitar esto con React)
