@@ -2,7 +2,7 @@
 
 :root {
   --dark-color-a: #222831;
-  --dark-color-b: #393E46;
+  --dark-color-b: #393e46;
   --light-color: #e6e9ff;
   --success-color: #5cb85c;
   --error-color: #d9534f;
@@ -123,20 +123,25 @@ a {
 
 /* Join Page */
 .join-container {
-  max-width: 500px;
-  margin: 80px auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   color: #fff;
 }
 
 .join-header {
   text-align: center;
   padding: 20px;
+  width: 30%;
   background: var(--dark-color-a);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
 .join-main {
+   width: 30%;
   padding: 30px 40px;
   background: var(--dark-color-b);
 }
@@ -174,6 +179,9 @@ a {
 }
 
 @media (max-width: 700px) {
+   .join-header, .join-main{
+      width: 95%;
+   }
   .chat-main {
     display: block;
   }
