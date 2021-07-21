@@ -1,14 +1,14 @@
 const socket = io()
 const chatForm = document.getElementById("chat-form")
 const chatMsgDiv = document.querySelector(".chat-messages")
-
+const roomName = document.getElementById("room-name")
+const roomUsers = document.getElementById("users")
 
 //Get username and room from URL
 const { username, room } = Qs.parse(location.search, {
    ignoreQueryPrefix: true
 })
 
-console.log(username, room)
 //Mostrar texto en DOM
 const outputMessage = (message) => {
    chatMsgDiv.insertAdjacentHTML("beforeend",
@@ -21,7 +21,14 @@ const outputMessage = (message) => {
    )
    //Scroll bottom
    chatMsgDiv.scrollTop = chatMsgDiv.scrollHeight
-
+}
+//Room name
+const outputRoomName = (room) => {
+   roomName.innerText = room
+}
+//User list in room
+const outputRoomUsers = (users) => {
+   roomUsers.innerHTML = `${users.map(user => `<li>${user.username}</li>`).join("")}`
 }
 
 //Enviar datos de usuario y room
@@ -32,6 +39,11 @@ socket.on("message", message => {
    outputMessage(message)
 })
 
+//Get room users
+socket.on("roomUsers", ({ room, users }) => {
+   outputRoomName(room);
+   outputRoomUsers(users)
+})
 //Message submit
 chatForm.addEventListener("submit", (e) => {
    e.preventDefault()
